@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+ <style>
+       
+        .colorbox {
+            width: 300px;
+            height: 100px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            
+        }
+        .slidercontainer {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .slider {
+            width: 200px;
+        }
+        .label {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+        
+    <div id="colorBox" class="colorbox" style="backgroundcolor: rgb(255, 123, 71);">
+        rgb(255, 123, 71)
+    </div>
+    
+    <div class="slidercontainer">
+        <div>
+            <input type="range" min="0" max="255" value="255" class="slider" id="redSlider" oninput="changeColor()">
+            <div class="label">RED <span id="red">255</span></div>
+        </div>
+        <div>
+            <input type="range" min="0" max="255" value="123" class="slider" id="greenSlider" oninput="changeColor()">
+            <div class="label">GREEN <span id="green">123</span></div>
+        </div>
+        <div>
+            <input type="range" min="0" max="255" value="71" class="slider" id="blueSlider" oninput="changeColor()">
+            <div class="label">BLUE <span id="blue">71</span></div>
+        </div>
+    </div>
+
+    <script>
+        function changeColor() {
+            
+            const red = redSlider.value;
+            const green = greenSlider.value;
+            const blue = blueSlider.value;
+                      
+            const colorBox = document.getElementById("colorBox");
+            colorBox.style.backgroundColor = rgb(${red}, ${green}, ${blue});
+                       
+            colorBox.textContent = rgb(${red}, ${green}, ${blue});
+                     
+            document.getElementById("red").textContent = red;
+            document.getElementById("green").textContent = green;
+            document.getElementById("blue").textContent = blue;
+        }
+    </script>
+
+</body>
+</html>
