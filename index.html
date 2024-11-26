@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
- <style>
-       
+    <style>
         .colorbox {
             width: 300px;
             height: 100px;
@@ -11,8 +9,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
-            
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: white;
+            text-shadow: 0 0 5px black;
         }
         .slidercontainer {
             display: flex;
@@ -24,12 +24,12 @@
         }
         .label {
             margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-        
-    <div id="colorBox" class="colorbox" style="backgroundcolor: rgb(255, 123, 71);">
+    <div id="colorBox" class="colorbox" style="background-color: rgb(255, 123, 71);">
         rgb(255, 123, 71)
     </div>
     
@@ -50,21 +50,20 @@
 
     <script>
         function changeColor() {
-            
-            const red = redSlider.value;
-            const green = greenSlider.value;
-            const blue = blueSlider.value;
-                      
+            const red = document.getElementById("redSlider").value;
+            const green = document.getElementById("greenSlider").value;
+            const blue = document.getElementById("blueSlider").value;
+
             const colorBox = document.getElementById("colorBox");
-            colorBox.style.backgroundColor = rgb(${red}, ${green}, ${blue});
-                       
-            colorBox.textContent = rgb(${red}, ${green}, ${blue});
-                     
+            const rgbValue = `rgb(${red}, ${green}, ${blue})`;
+
+            colorBox.style.backgroundColor = rgbValue;
+            colorBox.textContent = rgbValue;
+
             document.getElementById("red").textContent = red;
             document.getElementById("green").textContent = green;
             document.getElementById("blue").textContent = blue;
         }
     </script>
-
 </body>
 </html>
